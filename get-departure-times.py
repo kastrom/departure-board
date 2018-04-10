@@ -1,11 +1,12 @@
 # Train and bus times ticker for 64x32 LED matrix
 # Kris Fields, 2018
 
+import requests, math
+from datetime import datetime
+
 class DepartureTimes:
-    import requests, math
-    from datetime import datetime
-    
-    def getDepartureTimes():
+
+    def getDepartureTimes(self):
         
         app_id = 'a71361cd'
         app_key = '4cd17c34a4cee06842c404f5f435460a'
@@ -33,3 +34,10 @@ class DepartureTimes:
 
         for departure in sorted_departures:
             print("%s to %s in %s mins" % (departure['departure'], departure['destination'],  math.floor(departure['arrival']/60)))
+
+def main():
+    foo = DepartureTimes()
+    foo.getDepartureTimes()
+
+if __name__ == "__main__":
+    main()
