@@ -9,8 +9,7 @@ class DisplayDepartureTimes(SampleBase,):
     # class DisplayDepartureTimes(SampleBase, DepartureTimes):
     def __init__(self, *args, **kwargs):
         super(DisplayDepartureTimes, self).__init__(*args, **kwargs)
-        self.parser.add_argument(
-            "-font", "--font-input", help="The font to pass in", default="tom-thumb.bdf")
+        self.parser.add_argument("-font", "--font-input", help="The font to pass in", default="tom-thumb.bdf")
 
         def run(self):
             # DepartureTimes.getDepartureTimes()
@@ -46,10 +45,8 @@ class DisplayDepartureTimes(SampleBase,):
 
                 textColor = graphics.Color(200, 200, 200)
                 y = (lineHeight*(n+1))-2
-                graphics.DrawText(canvas, font, 1, y,
-                                  textColor, departures[n][0])
-                graphics.DrawText(canvas, font, timePosition,
-                                  y, textColor, departures[n][1])
+                graphics.DrawText(canvas, font, 1, y, textColor, departures[n][0])
+                graphics.DrawText(canvas, font, timePosition, y, textColor, departures[n][1])
                 graphics.DrawText(canvas, font, 52, y, textColor, "min")
 
             time.sleep(100)  # show display for 100 seconds before exit
@@ -57,7 +54,6 @@ class DisplayDepartureTimes(SampleBase,):
 # Main function
 if __name__ == "__main__":
     #departure_times = DepartureTimes()
-    display_departure_times = DisplayDepartureTimes(
-        departure_times)
+    display_departure_times = DisplayDepartureTimes(departure_times)
     if (not display_departure_times.process()):
         display_departure_times.print_help()
