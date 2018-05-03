@@ -11,44 +11,44 @@ class DisplayDepartureTimes(SampleBase):
         super(DisplayDepartureTimes, self).__init__(*args, **kwargs)
         self.parser.add_argument("-font", "--font-input", help="The font to pass in", default="tom-thumb.bdf")
 
-        def run(self):
-            # DepartureTimes.getDepartureTimes()
-            canvas = self.matrix
-            font = graphics.Font()
-            font.LoadFont("fonts/" + self.args.font_input)
-            lineHeight = 8
-            maxLength = 11
-            charWidth = 4
-            baseTimePosition = 47
-            trainColor = graphics.Color(241, 171, 0)
-            boatColor = graphics.Color(0, 171, 255)
+    def run(self):
+        # DepartureTimes.getDepartureTimes()
+        canvas = self.matrix
+        font = graphics.Font()
+        font.LoadFont("fonts/" + self.args.font_input)
+        lineHeight = 8
+        maxLength = 11
+        charWidth = 4
+        baseTimePosition = 47
+        trainColor = graphics.Color(241, 171, 0)
+        boatColor = graphics.Color(0, 171, 255)
 
-            departures = [["Waterloooooooo", "3"], ["Embankment", "5"], ["Waterloo", "9"], ["Waterloooooooo", "17"]]
+        departures = [["Waterloooooooo", "3"], ["Embankment", "5"], ["Waterloo", "9"], ["Waterloooooooo", "17"]]
 
-            for n in range(4):
+        for n in range(4):
 
-                # test to see if there is a single digit time
-                if len(departures[n][1]) == 1:
-                    # display the time component in the appropriate position
-                    timePosition = baseTimePosition
-                    # if the departure name length is above the maximum
-                    if len(departures[n][0]) >= maxLength:
-                        # truncate the name
-                        departures[n][0] = departures[n][0][:maxLength-1] + "_"
-                else:
-                    # if there is more than one digit, move the time 4 digits to the left
-                    timePosition = baseTimePosition - charWidth
-                    # this time test for a shorter truncation length
-                    if len(departures[n][0]) >= maxLength - 1:
-                        departures[n][0] = departures[n][0][:maxLength-2] + "_"
+            # test to see if there is a single digit time
+            if len(departures[n][1]) == 1:
+                # display the time component in the appropriate position
+                timePosition = baseTimePosition
+                # if the departure name length is above the maximum
+                if len(departures[n][0]) >= maxLength:
+                    # truncate the name
+                    departures[n][0] = departures[n][0][:maxLength-1] + "_"
+            else:
+                # if there is more than one digit, move the time 4 digits to the left
+                timePosition = baseTimePosition - charWidth
+                # this time test for a shorter truncation length
+                if len(departures[n][0]) >= maxLength - 1:
+                    departures[n][0] = departures[n][0][:maxLength-2] + "_"
 
-                textColor = graphics.Color(200, 200, 200)
-                y = (lineHeight*(n+1))-2
-                graphics.DrawText(canvas, font, 1, y, textColor, departures[n][0])
-                graphics.DrawText(canvas, font, timePosition, y, textColor, departures[n][1])
-                graphics.DrawText(canvas, font, 52, y, textColor, "min")
+            textColor = graphics.Color(200, 200, 200)
+            y = (lineHeight*(n+1))-2
+            graphics.DrawText(canvas, font, 1, y, textColor, departures[n][0])
+            graphics.DrawText(canvas, font, timePosition, y, textColor, departures[n][1])
+            graphics.DrawText(canvas, font, 52, y, textColor, "min")
 
-            time.sleep(100)  # show display for 100 seconds before exit
+        time.sleep(100)  # show display for 100 seconds before exit
 
 # Main function
 if __name__ == "__main__":
