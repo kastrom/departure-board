@@ -55,9 +55,9 @@ class DisplayDepartureTimes(SampleBase,):
             time.sleep(100)  # show display for 100 seconds before exit
 
             # Main function
-                if __name__ == "__main__":
-                    #departure_times = DepartureTimes()
-                    display_departure_times = DisplayDepartureTimes(
-                        departure_times)
-                    if (not display_departure_times.process()):
-                        display_departure_times.print_help()
+            if __name__ == "__main__":
+                #departure_times = DepartureTimes()
+                display_departure_times = DisplayDepartureTimes(
+                    departure_times)
+                if (not display_departure_times.process()):
+                    display_departure_times.print_help()
