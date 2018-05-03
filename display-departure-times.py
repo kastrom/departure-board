@@ -33,7 +33,7 @@ class DisplayDepartureTimes(SampleBase,):
                 else:
                     timePosition = baseTimePosition - charWidth # if there is more than one digit, move the time 4 digits to the left
                     if len(departures[n][0]) >= maxLength - 1: # this time test for a shorter truncation length
-                    departures[n][0] = departures[n][0][:maxLength-2] + "_"
+                        departures[n][0] = departures[n][0][:maxLength-2] + "_"
 
                 textColor = graphics.Color(200, 200, 200)
                 y = (lineHeight*(n+1))-2
