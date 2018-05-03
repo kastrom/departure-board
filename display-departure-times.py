@@ -41,7 +41,7 @@ class DisplayDepartureTimes(SampleBase,):
                 graphics.DrawText(canvas, font, timePosition, y, textColor, departures[n][1])
                 graphics.DrawText(canvas, font, 52, y, textColor, "min")
 
-                time.sleep(100) # show display for 100 seconds before exit
+            time.sleep(100) # show display for 100 seconds before exit
 
 
                 # Main function
