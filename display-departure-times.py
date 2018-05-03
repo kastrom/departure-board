@@ -42,7 +42,7 @@ class DisplayDepartureTimes(SampleBase):
                 if len(departures[n][0]) >= maxLength - 1:
                     departures[n][0] = departures[n][0][:maxLength-2] + "_"
 
-            textColor = graphics.Color(200, 200, 200)
+            textColor = graphics.Color(100, 100, 100)
             y = (lineHeight*(n+1))-2
             graphics.DrawText(canvas, font, 1, y, textColor, departures[n][0])
             graphics.DrawText(canvas, font, timePosition, y, textColor, departures[n][1])
