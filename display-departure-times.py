@@ -25,10 +25,6 @@ class DisplayDepartureTimes(SampleBase,):
             departures = [["Waterloooooooo","3"],["Embankment","5"],["Waterloo", "9"],["Waterloooooooo","17"]]
 
             for n in range(4):
-                #	    if departures[n][2] == "train":
-                #		textColor = trainColor
-                #	    else:
-                #		textColor = boatColor
 
                 if len(departures[n][1]) == 1: # test to see if there is a single digit time
                     timePosition = baseTimePosition # display the time component in the appropriate position
@@ -50,7 +46,7 @@ class DisplayDepartureTimes(SampleBase,):
 
                 # Main function
                 if __name__ == "__main__":
-                    departure_times = DepartureTimes()
+                    #departure_times = DepartureTimes()
                     display_departure_times = DisplayDepartureTimes(departure_times)
                     if (not display_departure_times.process()):
                         display_departure_times.print_help()
