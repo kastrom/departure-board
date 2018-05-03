@@ -4,14 +4,14 @@ from samplebase import SampleBase
 from rgbmatrix import graphics
 import time
 
-
-class DisplayDepartureTimes(SampleBase, DepartureTimes):
+class DisplayDepartureTimes(SampleBase,):
+#class DisplayDepartureTimes(SampleBase, DepartureTimes):
     def __init__(self, *args, **kwargs):
         super(DisplayDepartureTimes, self).__init__(*args, **kwargs)
         self.parser.add_argument("-font", "--font-input", help="The font to pass in", default="tom-thumb.bdf")
 
         def run(self):
-            DepartureTimes.getDepartureTimes()
+            #DepartureTimes.getDepartureTimes()
             canvas = self.matrix
             font = graphics.Font()
             font.LoadFont("fonts/" + self.args.font_input)
