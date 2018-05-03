@@ -5,12 +5,13 @@ from rgbmatrix import graphics
 import time
 
 
-class DisplayDepartureTimes(SampleBase):
+class DisplayDepartureTimes(SampleBase, DepartureTimes):
     def __init__(self, *args, **kwargs):
         super(DisplayDepartureTimes, self).__init__(*args, **kwargs)
         self.parser.add_argument("-font", "--font-input", help="The font to pass in", default="tom-thumb.bdf")
 
         def run(self):
+            DepartureTimes.getDepartureTimes()
             canvas = self.matrix
             font = graphics.Font()
             font.LoadFont("fonts/" + self.args.font_input)
@@ -30,13 +31,13 @@ class DisplayDepartureTimes(SampleBase):
                 #		textColor = boatColor
 
                 if len(departures[n][1]) == 1: # test to see if there is a single digit time
-                timePosition = baseTimePosition # display the time component in the appropriate position
+                    timePosition = baseTimePosition # display the time component in the appropriate position
                 if len(departures[n][0]) >= maxLength: # if the departure name length is above the maximum
-                departures[n][0] = departures[n][0][:maxLength-1] + "_" # truncate the name
+                    departures[n][0] = departures[n][0][:maxLength-1] + "_" # truncate the name
             else:
                 timePosition = baseTimePosition - charWidth # if there is more than one digit, move the time 4 digits to the left
                 if len(departures[n][0]) >= maxLength - 1: # this time test for a shorter truncation length
-                departures[n][0] = departures[n][0][:maxLength-2] + "_"
+                    departures[n][0] = departures[n][0][:maxLength-2] + "_"
 
                 textColor = graphics.Color(200, 200, 200)
                 y = (lineHeight*(n+1))-2
@@ -49,6 +50,7 @@ class DisplayDepartureTimes(SampleBase):
 
                 # Main function
                 if __name__ == "__main__":
-                    display_departure_times = DisplayDepartureTimes()
+                    departure_times = DepartureTimes()
+                    display_departure_times = DisplayDepartureTimes(departure_times)
                     if (not display_departure_times.process()):
                         display_departure_times.print_help()
