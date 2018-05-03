@@ -5,7 +5,7 @@ from rgbmatrix import graphics
 import time
 
 
-class DisplayDepartureTimes(SampleBase,):
+class DisplayDepartureTimes(SampleBase):
     # class DisplayDepartureTimes(SampleBase, DepartureTimes):
     def __init__(self, *args, **kwargs):
         super(DisplayDepartureTimes, self).__init__(*args, **kwargs)
@@ -53,6 +53,6 @@ class DisplayDepartureTimes(SampleBase,):
 # Main function
 if __name__ == "__main__":
     #departure_times = DepartureTimes()
-    display_departure_times = DisplayDepartureTimes(departure_times)
+    display_departure_times = DisplayDepartureTimes()
     if (not display_departure_times.process()):
         display_departure_times.print_help()
