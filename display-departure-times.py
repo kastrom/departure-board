@@ -23,8 +23,7 @@ class DisplayDepartureTimes(SampleBase,):
             trainColor = graphics.Color(241, 171, 0)
             boatColor = graphics.Color(0, 171, 255)
 
-            departures = [["Waterloooooooo", "3"], ["Embankment", "5"], [
-                "Waterloo", "9"], ["Waterloooooooo", "17"]]
+            departures = [["Waterloooooooo", "3"], ["Embankment", "5"], ["Waterloo", "9"], ["Waterloooooooo", "17"]]
 
             for n in range(4):
 
