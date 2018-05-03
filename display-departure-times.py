@@ -28,11 +28,11 @@ class DisplayDepartureTimes(SampleBase,):
 
                 if len(departures[n][1]) == 1: # test to see if there is a single digit time
                     timePosition = baseTimePosition # display the time component in the appropriate position
-                if len(departures[n][0]) >= maxLength: # if the departure name length is above the maximum
-                    departures[n][0] = departures[n][0][:maxLength-1] + "_" # truncate the name
-            else:
-                timePosition = baseTimePosition - charWidth # if there is more than one digit, move the time 4 digits to the left
-                if len(departures[n][0]) >= maxLength - 1: # this time test for a shorter truncation length
+                    if len(departures[n][0]) >= maxLength: # if the departure name length is above the maximum
+                        departures[n][0] = departures[n][0][:maxLength-1] + "_" # truncate the name
+                else:
+                    timePosition = baseTimePosition - charWidth # if there is more than one digit, move the time 4 digits to the left
+                    if len(departures[n][0]) >= maxLength - 1: # this time test for a shorter truncation length
                     departures[n][0] = departures[n][0][:maxLength-2] + "_"
 
                 textColor = graphics.Color(200, 200, 200)
